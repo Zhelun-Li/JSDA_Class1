@@ -5,7 +5,7 @@
 Assuming the reader of this document has a solid technical background, I would recommend spending no more than 20 hours in total preparing for this exam and focusing the rest of your time on real work. By carefully studying the structure of the test and fully understanding the principles of entropy, a strategic test taker should be able to maximally exploit the information content of questions in any exam.
 
 <span style="color:red;">
-"It remains that, from the same principles, I now demonstrate the frame of the System of the JSDA class 1 exam."  -- not By Issac Newton
+"It remains that, from the same principles, I now demonstrate the frame of the System of the JSDA Class 1 exam." -- not by Isaac Newton
 </span>
 
 ## Draft Outline
@@ -13,6 +13,7 @@ Assuming the reader of this document has a solid technical background, I would r
 1. [Overview](#overview)
 2. [Sensitivity](#sensitivity)
    1. [The random guesser](#random-guesser)
+   2. [The informed guesser](#informed-guesser)
 3. [Entropy](#entropy)
 
 <a id="overview"></a>
@@ -62,12 +63,12 @@ Question type notation:
 
 Now, after looking at the table, one conclusion becomes immediately clear: Derivatives Trading, Equity Operations, Bond Operations, and Association Articles and Rules are the four most important sections.
 <span style="color:red;"><strong>Advice 1.1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.</strong></span>
-When I say "only," I mean that these three sections should account for more than 80% of your total study time. At this point, you may naturally have two questions:
+At this point, you may naturally have two questions:
 
 - What about the other sections?
 - What about Association Articles and Rules, since I just said that it is one of the most important sections?
 
-Don't worry, I will teach you the techniques later about the other sections. But first, let us look the at why Association Articles and Rules is not important. And by investigating this, we will learn something important about the exam.
+Don't worry. I will teach you the techniques for the other sections later. But first, let us look at why Association Articles and Rules is not as important as it seems. By investigating this, we will learn something important about the exam.
 
 <a id="sensitivity"></a>
 
@@ -77,6 +78,34 @@ Don't worry, I will teach you the techniques later about the other sections. But
 
 ### 2.1 The random guesser
 
+First, let us study the expected result for someone who attempts the exam with no knowledge, or information, at all. Given this lack of information, a truly rational Bayesian test taker would inevitably become a random guesser, since all choices must be treated as equally likely.
+
+For TF questions, random guessing gives a `1/2` chance of being correct. For C15 questions, random guessing gives a `1/5` chance. C25 is more interesting. Since we choose 2 answers from 5, there are `C(5, 2) = 10` possible pairs. One pair is fully correct and gives 10 points. Six pairs contain exactly one correct answer and give 5 points. The remaining three pairs give 0 points.
+
+So, using the question counts from the overview table:
+
+- TF score follows `2 * Binomial(70, 1/2)`
+- C15 score follows `10 * Binomial(15, 1/5)`
+- C25 score follows a 15-question partial-credit distribution with `P(0 points) = 3/10`, `P(5 points) = 6/10`, and `P(10 points) = 1/10`
+
+
+| Question Type | Maximum Points | Expected Score +/- Std | Relative Score +/- Std |
+| --- | ---: | ---: | ---: |
+| TF | 140 | 70.00 +/- 8.37 | 50.00% +/- 5.98% |
+| C15 | 150 | 30.00 +/- 15.49 | 20.00% +/- 10.33% |
+| C25 | 150 | 60.00 +/- 11.62 | 40.00% +/- 7.75% |
+| **Total** | **440** | **160.00 +/- 21.10** | **36.36% +/- 4.79%** |
+
+Now add these three distributions together. The exam has 440 total points, so the 70% passing line is 308 points. The exact probability that a pure random guesser passes is:
+
+<span style="color:red;"><strong>Probability of passing by pure random guessing: 8.23e-11, or about 0.00000000823%.</strong></span>
+
+As one can clearly observe from the calculation above, passing the exam as a random guesser is astronomically unlikely. Overall, we can see that C15 is the most important question type, simply because choosing one answer out of five is very hard. At the same time, it is an all-or-nothing question type with a lot of weight. This explains the second question left open in Section 1. In part, Association Articles and Rules questions are not as important because they are TF and C25 questions, which are relatively favorable to a random guesser. And we will soon see that this is not the only reason. Actual test takers are not random guessers, especially in sections such as Association Articles and Rules, where prior probability and common sense play an important role.
+<!-- ![Exact random-guesser score distributions](images/random_guesser_question_type_distributions.png) -->
+
+<a id="informed-guesser"></a>
+
+### 2.2 The informed guesser
 
 <a id="entropy"></a>
 
