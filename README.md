@@ -100,12 +100,26 @@ Now add these three distributions together. The exam has 440 total points, so th
 
 <span style="color:red;"><strong>Probability of passing by pure random guessing: 8.23e-11, or about 0.00000000823%.</strong></span>
 
-As one can clearly observe from the calculation above, passing the exam as a random guesser is astronomically unlikely. Overall, we can see that C15 is the most important question type, simply because choosing one answer out of five is very hard. At the same time, it is an all-or-nothing question type with a lot of weight. This explains the second question left open in Section 1. In part, Association Articles and Rules questions are not as important because they are TF and C25 questions, which are relatively favorable to a random guesser. And we will soon see that this is not the only reason. Actual test takers are not random guessers, especially in sections such as Association Articles and Rules, where prior probability and common sense play an important role.
+As one can clearly observe from the calculation above, passing the exam as a random guesser is astronomically unlikely. Overall, we can see that C15 is the most important question type, simply because choosing one answer out of five is difficult, which makes the expected relative score very low. At the same time, it is an all-or-nothing question type with a lot of weight. This explains the second question left open in Section 1. In part, Association Articles and Rules questions are not as important because they are TF and C25 questions, which are relatively favorable to a random guesser. And we will soon see that this is not the only reason. Actual test takers are not random guessers, especially in sections such as Association Articles and Rules, where prior probability and common sense play an important role.
 <!-- ![Exact random-guesser score distributions](images/random_guesser_question_type_distributions.png) -->
 
 <a id="informed-guesser"></a>
 
 ### 2.2 The informed guesser
+
+In Section 2.1, we worked out the special case of a random guesser. Now we proceed to develop a much more realistic model, in which the test taker is assumed to possess some information about the exam material. For those familiar with information theory, it is easy to see that we can intuitively represent the examinee's information using $p$, the rate at which the examinee is capable of choosing the right answer.
+
+For starters, let us look at TF questions and assume that the examinee's probability of answering correctly is $p_{tf}$, instead of exactly $1/2$, which is the random-guesser case. Of course, we expect $p_{tf} \geq 1/2$. If not, intelligent examinees would simply invert their answers by choosing the opposite of what they believe to be right. In other words, it takes the same amount of information to be consistently wrong as it does to be consistently right. For any value of $p_{tf}$, we can work out the binomial distribution of the total number of TF questions answered correctly and hence derive the distribution of the TF score. Next, we evaluate the score distribution for C15 on the same plot. C15 is easy because it simply assigns a probability $p_{15}$ between `0.2` and `1` to choosing the correct answer.
+
+C25 is harder to model. In practice, its five choices often behave like five TF statements bundled into one question. Let us assume that the examinee can judge each statement correctly with probability $p_{25}$: true statements are recognized as true, and false statements are recognized as false, each with probability $p_{25}$.
+
+Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true.
+
+![TF, C15, and C25 informed-guesser sensitivity](images/tf_c15_c25_informed_guesser_sensitivity.png)
+
+Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. The plot below shows the expected point gain only, which is the cleanest way to compare which question type is most sensitive to a small improvement in judgment.
+
+![Question type point sensitivity](images/question_type_point_sensitivity.png)
 
 <a id="entropy"></a>
 
