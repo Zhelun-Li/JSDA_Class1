@@ -2,11 +2,16 @@
 
 ## Purpose
 
-Assuming the reader of this document has a solid technical background, I would recommend spending no more than 20 hours in total preparing for this exam and focusing the rest of your time on real work. By carefully studying the structure of the test and fully understanding the principles of entropy, a strategic test taker should be able to maximally exploit the information content of questions in any exam.
+Assuming the reader of this document has a solid technical background, I would recommend spending no more than 20 hours in total preparing for this exam and focusing the rest of your time on real work. By carefully studying the structure of the test and fully understanding the principles of entropy, a strategic test taker should be able to maximally exploit the information content of the questions in this exam.
 
 <span style="color:red;">
 "It remains that, from the same principles, I now demonstrate the frame of the System of the JSDA Class 1 exam." -- not by Isaac Newton
 </span>
+
+## Advice
+Advice 1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.
+
+Advice 2: The 5-choice questions are much more important than the True or False questions.
 
 ## Draft Outline
 
@@ -15,6 +20,7 @@ Assuming the reader of this document has a solid technical background, I would r
    1. [The random guesser](#random-guesser)
    2. [The informed guesser](#informed-guesser)
 3. [Entropy](#entropy)
+   1. [What is entropy? ](#What-is-entropy)
 
 <a id="overview"></a>
 
@@ -62,13 +68,15 @@ Question type notation:
 
 
 Now, after looking at the table, one conclusion becomes immediately clear: Derivatives Trading, Equity Operations, Bond Operations, and Association Articles and Rules are the four most important sections.
-<span style="color:red;"><strong>Advice 1.1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.</strong></span>
+
+<span style="color:red;"><strong>Advice 1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.</strong></span>
+
 At this point, you may naturally have two questions:
 
 - What about the other sections?
 - What about Association Articles and Rules, since I just said that it is one of the most important sections?
 
-Don't worry. I will teach you the techniques for the other sections later. But first, let us look at why Association Articles and Rules is not as important as it seems. By investigating this, we will learn something important about the exam.
+Don't worry. I will teach you techniques for the other sections later. But first, let us look at why Association Articles and Rules is not as important as it seems. By investigating this, we will learn something important about the exam.
 
 <a id="sensitivity"></a>
 
@@ -96,33 +104,71 @@ So, using the question counts from the overview table:
 | C25 | 150 | 60.00 +/- 11.62 | 40.00% +/- 7.75% |
 | **Total** | **440** | **160.00 +/- 21.10** | **36.36% +/- 4.79%** |
 
-Now add these three distributions together. The exam has 440 total points, so the 70% passing line is 308 points. The exact probability that a pure random guesser passes is:
+Now add these three distributions together. The exam has 440 total points, so the 70% passing line is 308 points. The exact probability that a pure random guesser passes is 8.23e-11, or about 0.00000000823%.
 
-<span style="color:red;"><strong>Probability of passing by pure random guessing: 8.23e-11, or about 0.00000000823%.</strong></span>
-
-As one can clearly observe from the calculation above, passing the exam as a random guesser is astronomically unlikely. Overall, we can see that C15 is the most important question type, simply because choosing one answer out of five is difficult, which makes the expected relative score very low. At the same time, it is an all-or-nothing question type with a lot of weight. This explains the second question left open in Section 1. In part, Association Articles and Rules questions are not as important because they are TF and C25 questions, which are relatively favorable to a random guesser. And we will soon see that this is not the only reason. Actual test takers are not random guessers, especially in sections such as Association Articles and Rules, where prior probability and common sense play an important role.
+As one can clearly observe from the calculation above, passing the exam as a random guesser is astronomically unlikely. Overall, we can see that C15 is the most important question type, simply because choosing one answer out of five is difficult, which makes the expected relative score very low. At the same time, it is an all-or-nothing question type with a lot of weight. This explains the second question left open in Section 1. In part, Association Articles and Rules questions are not as important because they are TF and C25 questions, which are relatively favorable to a random guesser. We will soon see that this is not the only reason. Actual test takers are not random guessers, especially in sections such as Association Articles and Rules, where prior probability and common sense play an important role.
 <!-- ![Exact random-guesser score distributions](images/random_guesser_question_type_distributions.png) -->
 
 <a id="informed-guesser"></a>
 
 ### 2.2 The informed guesser
 
-In Section 2.1, we worked out the special case of a random guesser. Now we proceed to develop a much more realistic model, in which the test taker is assumed to possess some information about the exam material. For those familiar with information theory, it is easy to see that we can intuitively represent the examinee's information using $p$, the rate at which the examinee is capable of choosing the right answer.
+In Section 2.1, we worked out the special case of a random guesser. Now we proceed to develop a much more realistic model, in which the test taker is assumed to possess some information about the exam material. For those familiar with information theory, it is easy to see that we can intuitively represent the examinee's information using $p$, the rate at which the examinee is able to choose the right answer.
 
 For starters, let us look at TF questions and assume that the examinee's probability of answering correctly is $p_{tf}$, instead of exactly $1/2$, which is the random-guesser case. Of course, we expect $p_{tf} \geq 1/2$. If not, intelligent examinees would simply invert their answers by choosing the opposite of what they believe to be right. In other words, it takes the same amount of information to be consistently wrong as it does to be consistently right. For any value of $p_{tf}$, we can work out the binomial distribution of the total number of TF questions answered correctly and hence derive the distribution of the TF score. Next, we evaluate the score distribution for C15 on the same plot. C15 is easy because it simply assigns a probability $p_{15}$ between `0.2` and `1` to choosing the correct answer.
 
 C25 is harder to model. In practice, its five choices often behave like five TF statements bundled into one question. Let us assume that the examinee can judge each statement correctly with probability $p_{25}$: true statements are recognized as true, and false statements are recognized as false, each with probability $p_{25}$.
 
-Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true.
+Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true. The plot of the expected score with respect to $p$ is shown below, where $p$ starts from the random-guess baseline.
 
 ![TF, C15, and C25 informed-guesser sensitivity](images/tf_c15_c25_informed_guesser_sensitivity.png)
 
-Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. The plot below shows the expected point gain only, which is the cleanest way to compare which question type is most sensitive to a small improvement in judgment.
+Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. The plot below shows the expected point gain only, which is the cleanest way to compare which question type is most sensitive to a small improvement in judgment. For TF and C15, it is easy to see that the sensitivity is flat, whereas C25 exhibits non-linear behavior. 
 
 ![Question type point sensitivity](images/question_type_point_sensitivity.png)
+
+By now, I hope I have convinced the reader that both C15 and C25 carry more weight than TF. In terms of sensitivity, it is also more efficient to study them, especially C25, since it offers nonlinear improvement. To summarize:
+
+<span style="color:red;"><strong>Advice 2:  5-choice questions are much more important than the True or False questions. </strong></span>
 
 <a id="entropy"></a>
 
 ## 3. Entropy
+
+In this chapter, I will first give you a lecture on what entropy is using real-world examples. You will understand why hot coffee tends to get cold, why things tend to break down instead of functioning, and why even equally talented people in fair societies inevitably create enormous wealth discrepancies over the long run.
+
+Subsequently, we will see how to use entropy in the preparation of this test.
+
+<a id="What-is-entropy"></a>
+### 3.1 What is entropy?
+
+Entropy can be defined in several ways: Boltzmann (statistical mechanics), Shannon (information theory), and Jaynes (Bayesian statistics). A knowledgeable reader will of course know that the three different approaches above are mutually equivalent and often borrow terms from one another. In this subsection, we will attempt to give a short description using the Boltzmann-like picture.
+
+In one sentence, I wish to define entropy as "a measurement of disorder/randomness" and information as "a measurement of order with respect to disorder/randomness". To illustrate this, let us focus on the following example.
+
+<a id="coinflip"></a>
+#### 3.1.1  The coin flip
+Let us say we play a game of coin-flipping: if it is heads (denoted by +), you receive one dollar. If it is tails (denoted by -), you pay one dollar. Are you scared to gamble under such conditions? Of course not. This is a fair game, and you know that on average, your expected payoff is $E = 0$. You are probably thinking something like this: "If I play a few games, I might get unlucky and lose some money. But as long as I play a huge number of games, I should be roughly winning half and roughly losing half." But why is that?
+
+Let us examine the idea of "fairness": it means that on each flip, the outcome is independent and 50-50. If we play six games, the outcome could be represented by a string such as "+-++-+", where one wins four games and loses two. Now fairness demands that any such possible string is equally likely to happen. Otherwise, the game is rigged toward certain outcomes. Let us call such strings <span style="color:red">microstates</span>, micro in the sense that the string specifies all the flips exactly and therefore corresponds to only one outcome. On the contrary, when a person is in the state of "winning one dollar overall," we call this the <span style="color:red">macrostate</span>. Obviously, it is macro in the sense that there are multiple ways to win two dollars: "+-++-+", "++++--", "++--++", etc.
+
+It is then obvious that macrostates correspond to one or more microstates, where the latter requires more information to specify. Recall the idea of fairness: all microstates must be equally likely in our coin flips. The question is: how much more likely is it for you to be net zero at the end of the sixth game than to be down 6 dollars?
+
+To lose six dollars in a game of six coin flips, you must lose all six rounds. So the macrostate of "-6$" has only one microstate. But to be net zero, there are many more possibilities. As long as you win three games in total, you will be net zero. Now how many ways are there for you to win 3 games? The answer is 20. And since each microstate is equally likely to occur, we see that the macrostate of net zero is 20 times more likely than -6$. Denote the number of microstates in a macrostate as $\Omega$, and let $i, j$ be labels of a microstate. We then have:
+
+$$\frac{P(0)}{P(-6)} = \frac{\sum_{i = 0}^{\Omega(0)} p(i)}{\sum_{j = 0}^{\Omega(-6)} p(j)} = \frac{\Omega(0)}{\Omega(-6)} = \frac{20}{1} = 20$$
+
+
+We see that even though the game is fair, some macrostates are far more likely to occur because they are more "vague": they correspond to more microstates. And as we play more games, this phenomenon gets more exaggerated. Let us define the notional of the game, $N$, as the maximum money at stake. Let us compare how likely the game is to give an outcome near net zero for total numbers of 20, 400, and 2000 games. The results are shown below. We see that the distribution becomes far more concentrated around net zero. This is theoretically intuitive: as more games are played, the number of combinations of microstates near net zero grows much faster than the rest. The reader can investigate the mathematical details separately, derive the binomial distribution we used intensively in the last section, and conclude that the width of the distribution in the following plot shrinks polynomially, with exponent $1/2$.
+
+
+![Normalized payoff distribution for 20, 400, and 2000 games](images/coin_flip_normalized_payoff.png)
+
+
+To conclude, if you play more and more games, you will almost inevitably land somewhere near the net-zero center. And this "number of microstates" is what we call entropy. From the Boltzmann perspective, this is all just combinatorics. From Shannon's information theory perspective, a higher entropy means more randomness and less order. In the example given above, the macrostate of net zero has many more microstates and thus requires more information to specify: it is more random and chaotic because it can be any of many microstates. It has less order because -6$ means "------", which is very orderly, while net zero often means something like "+--+-++", which is not very neat, is it?
+
+In other words, we propose that in the long term, things will NATURALLY and inevitably drift toward a state with higher entropy: more chaos, more randomness, and less order.
+
+# Elementary particles! and indistinguishability
 
 ## Next Step
