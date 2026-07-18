@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Thermal exchange between two rooms</title>
+  <desc id="desc">Two connected rooms contain ten numbered heat units: three in the left room and seven in the right room. A small opening in the central wall allows units to pass between rooms.</desc>
+  <defs>
+    <style>
+      .label { font-family: Arial, Helvetica, sans-serif; fill: #24313f; }
+      .small { font-size: 18px; }
+      .medium { font-size: 24px; font-weight: 700; }
+      .particleText { font-size: 17px; font-weight: 700; fill: #ffffff; text-anchor: middle; dominant-baseline: central; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b647c"/>
+    </marker>
+  </defs>
+
+  <rect x="34" y="42" width="852" height="300" rx="8" fill="#f8fafc" stroke="#9fb0c0" stroke-width="3"/>
+  <rect x="36" y="44" width="424" height="296" fill="#f0f7ff"/>
+  <rect x="460" y="44" width="424" height="296" fill="#fff6e8"/>
+
+  <line x1="460" y1="42" x2="460" y2="162" stroke="#24313f" stroke-width="5"/>
+  <line x1="460" y1="222" x2="460" y2="342" stroke="#24313f" stroke-width="5"/>
+  <rect x="452" y="162" width="16" height="60" rx="8" fill="#ffffff" stroke="#24313f" stroke-width="3"/>
+
+  <text x="248" y="84" class="label medium" text-anchor="middle">Room A</text>
+  <text x="672" y="84" class="label medium" text-anchor="middle">Room B</text>
+  <text x="248" y="314" class="label small" text-anchor="middle">3 heat units</text>
+  <text x="672" y="314" class="label small" text-anchor="middle">7 heat units</text>
+  <text x="460" y="374" class="label small" text-anchor="middle">small aperture permits random exchange</text>
+
+  <path d="M 393 177 C 422 149, 500 149, 530 177" fill="none" stroke="#4b647c" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M 527 209 C 498 237, 421 237, 392 209" fill="none" stroke="#4b647c" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g fill="#2b6cb0" stroke="#164a7a" stroke-width="2">
+    <circle cx="154" cy="157" r="24"/><text x="154" y="157" class="particleText">1</text>
+    <circle cx="253" cy="204" r="24"/><text x="253" y="204" class="particleText">2</text>
+    <circle cx="346" cy="142" r="24"/><text x="346" y="142" class="particleText">3</text>
+  </g>
+
+  <g fill="#d97706" stroke="#994d00" stroke-width="2">
+    <circle cx="565" cy="135" r="24"/><text x="565" y="135" class="particleText">4</text>
+    <circle cx="665" cy="123" r="24"/><text x="665" y="123" class="particleText">5</text>
+    <circle cx="772" cy="151" r="24"/><text x="772" y="151" class="particleText">6</text>
+    <circle cx="608" cy="222" r="24"/><text x="608" y="222" class="particleText">7</text>
+    <circle cx="715" cy="207" r="24"/><text x="715" y="207" class="particleText">8</text>
+    <circle cx="811" cy="241" r="24"/><text x="811" y="241" class="particleText">9</text>
+    <circle cx="552" cy="274" r="24"/><text x="552" y="274" class="particleText">10</text>
+  </g>
+</svg>

@@ -21,6 +21,7 @@ Advice 2: The 5-choice questions are much more important than the True or False 
    2. [The informed guesser](#informed-guesser)
 3. [Entropy](#entropy)
    1. [What is entropy? ](#What-is-entropy)
+   2. [Coffee, wealth and pessimism ](#CWE)
 
 <a id="overview"></a>
 
@@ -121,11 +122,17 @@ C25 is harder to model. In practice, its five choices often behave like five TF 
 
 Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true. The plot of the expected score with respect to $p$ is shown below, where $p$ starts from the random-guess baseline.
 
+<a id="fig-informed-guesser-sensitivity"></a>
 ![TF, C15, and C25 informed-guesser sensitivity](images/tf_c15_c25_informed_guesser_sensitivity.png)
+
+*Figure 1. Expected score sensitivity for TF, C15, and C25 questions as examinee information increases.*
 
 Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. The plot below shows the expected point gain only, which is the cleanest way to compare which question type is most sensitive to a small improvement in judgment. For TF and C15, it is easy to see that the sensitivity is flat, whereas C25 exhibits non-linear behavior. 
 
+<a id="fig-question-type-point-sensitivity"></a>
 ![Question type point sensitivity](images/question_type_point_sensitivity.png)
+
+*Figure 2. Expected point gain from a one-percentage-point improvement in judgment across question types.*
 
 By now, I hope I have convinced the reader that both C15 and C25 carry more weight than TF. In terms of sensitivity, it is also more efficient to study them, especially C25, since it offers nonlinear improvement. To summarize:
 
@@ -161,14 +168,42 @@ $$\frac{P(0)}{P(-6)} = \frac{\sum_{i = 0}^{\Omega(0)} p(i)}{\sum_{j = 0}^{\Omega
 
 We see that even though the game is fair, some macrostates are far more likely to occur because they are more "vague": they correspond to more microstates. And as we play more games, this phenomenon gets more exaggerated. Let us define the notional of the game, $N$, as the maximum money at stake. Let us compare how likely the game is to give an outcome near net zero for total numbers of 20, 400, and 2000 games. The results are shown below. We see that the distribution becomes far more concentrated around net zero. This is theoretically intuitive: as more games are played, the number of combinations of microstates near net zero grows much faster than the rest. The readers can investigate the mathematical details by themselves, derive the binomial distribution we used intensively in the last section, and conclude that the width of the distribution in the following plot shrinks polynomially, with exponent 1/2.
 
-
+<a id="fig-coin-flip-payoff"></a>
 ![Normalized payoff distribution for 20, 400, and 2000 games](images/coin_flip_normalized_payoff.png)
+
+*Figure 3. Normalized payoff distribution for 20, 400, and 2000 fair coin-flip games.*
 
 
 To conclude, if you play more and more games, you will almost inevitably land somewhere near the net-zero center. And this "number of microstates" is what we call entropy. From the Boltzmann perspective, this is all just combinatorics. From Shannon's information theory perspective, a higher entropy means more randomness and less order. In the example given above, the macrostate of net zero is more random and chaotic because it can be any of many microstates. It has less order because -6$ means "------", which is very orderly, while net zero often means something like "+--+-++", which is not very neat, is it?
 
 In other words, we propose that in the long term, things will NATURALLY and inevitably drift toward a state with higher entropy: more chaos, more randomness, and less order.
 
-# Elementary particles! and indistinguishability
+
+<a id="CWE"></a>
+### 3.2 Coffee, wealth, and pessimism.
+
+Entropy is a statistical property of large, complex systems, yet it governs many familiar processes. Why, for instance, does hot coffee cool in an air-conditioned room? The answer follows directly from the previous subsection. Imagine two rooms separated by a thin wall with a small aperture. Each room contains rapidly moving numbered balls, representing discrete units of thermal energy, and these balls can occasionally pass through the aperture. In the example below, Room A contains 3 balls and Room B contains 7. If the balls move randomly for a long time, how much more likely is it to observe an even split, with 5 balls in each room, than an extreme split, with all 10 balls in one room?
+
+<a id="fig-thermal-exchange"></a>
+![Thermal exchange between two connected rooms](images/thermal_exchange_two_rooms.svg)
+
+*Figure 4. Random exchange of thermal-energy units between two connected rooms.*
+
+This is the same combinatorial problem as the coin-flip example. A microstate specifies the location of every labelled ball, whereas a macrostate specifies only how many balls are on each side. The macrostate in which all 10 balls are on one side has only two microstates: all balls are on the left, or all balls are on the right. By contrast, there are 252 ways to place 5 balls on each side. For example, balls #1, #2, #3, #4, and #5 could be on the left, or balls #1, #4, #6, #8, and #9 could be on the left. Thus, the evenly divided macrostate is 126 times more likely than the extreme macrostate.
+
+Since each ball is qually likely to be on the right or left in the fullness of time, it is essentially a coin flip.This is why [Figure 3](#fig-coin-flip-payoff) can also be read as a thermal-exchange diagram: the x-axis may be interpreted as the fraction of balls on the left side. As the number of balls increases from 20 to 2000, the distribution becomes sharply concentrated near an even split. A cup of hot coffee contains not 20 or 2000 atoms, but on the order of 2 × 10²⁵ atoms, while the surrounding air contains vastly more. The cooling of coffee is therefore not imposed by a separate rule of physics; it is a statistical consequence of overwhelmingly many more microstates in which thermal energy is dispersed into the surroundings than concentrated in the coffee. Energy can, in principle, flow in either direction, but for systems of this size the overwhelmingly probable outcome is that hot coffee loses heat to the room.
+
+A naive reader at this point might think the examples above show that nature favours equality, since heat tends to spread evenly. But nothing could be further from the truth. Entropy does not favour equality itself; it favours the macrostate with the greatest number of possible microstates.
+
+Consider a simple wealth experiment. Suppose 100 people each begin with $1,000 and repeatedly play rock-scissors-paper with one another at random. After each game, the loser pays the winner $1. Since everyone starts equally and the game is fair, one might expect wealth to remain roughly equal in the long run. But of course not. Over time, it is inevitable that a small number of people will hold a large share of the total wealth.
+
+The reason is simple: perfect equality is an extremely specific state. Since money is not labelled, one dollar is the same as any other dollar, so there is only one allocation in which every person has exactly $1,000. Unequal distributions, however, can be arranged in vastly more ways. Person #1 could be rich, or person #84, or any combination of people, with many possible amounts assigned to each. At the opposite extreme, one person holding all the money is also highly specific and therefore unlikely. The most probable outcome lies somewhere between perfect equality and total concentration: unequal enough to allow many possible arrangements, but not so extreme that the arrangement becomes special again. This intermediate region is the maximum-entropy state. Thus, even when everyone begins equally and plays only fair games, most participants will eventually fall below the average, while a minority holds disproportionately more.
+
+A side note for curious readers: in the examples above, interchangeability matters enormously. Since entropy is a combinatorial idea in this picture we presented, the number of possible arrangements depends on whether the objects being counted are distinguishable. Dividing 10 labelled balls between two rooms is not the same problem as dividing 10 identical balls. The counting changes, and therefore the entropy changes. This is one reason elementary particles are so conceptually strange. A soccer ball, a mug, a molecule, or even an atom can in principle be labelled and tracked as an individual object. But an elementary particle cannot. Two electrons are not merely difficult to distinguish because our instruments are imperfect; they are identical in principle and cannot be labelled. This conclusion is supported by their observed statistical behaviour, among many other lines of evidence. If electrons could be labelled, even in principle, they would obey different statistical laws, and matter would have different thermodynamic properties.
+
+Overall, the idea of increasing entropy teaches pessimism as an objective truth: in the long run, nothing in our universe escapes decay. Nature does not build high-speed railways, tall buildings, or bridges. If human beings build them and leave them alone, they will eventually collapse. This is not because physics specifically requires buildings to collapse, but because arranging atoms into a structure useful enough for human beings to live in is an extraordinarily specific state. There are vastly more ways for those atoms to be scattered, displaced, corroded, cracked, or otherwise arranged. All it takes is enough random processes over enough time.
+Similarly, coffee cools, sand castles are washed away, wealth inequality intensifies, and the human body eventually ceases to function. Everything fails eventually. Not because some ancient prophet indoctrinated us with this idea of inevitable failure, but because success, as we define it, is usually highly specific. For a human being to remain alive, the heart, liver, lungs, brain, and countless other systems must keep functioning together. To have everything working at once is a narrow condition; to have at least one essential system fail allows many more possibilities. The same is true of a happy family: health, money, children, housing, work, affection, timing, luck. So many conditions must hold at once. As Leo Tolstoy famously wrote in what is now known as the Anna Karenina principle: “All happy families are alike; each unhappy family is unhappy in its own way.”
+
+But beyond this pessimism, there are other lessons to draw. We should be grateful that human beings have come so far in finding ways to temporarily and locally reverse entropy’s increase on Earth. Futile as this may be in the longest run, we all benefit from the efforts of those who came before us: we do have hot coffee, air conditioners, bridges, and buildings. The point is therefore not to ask whether things will fail, because they certainly will, but to ask what we can do about it. It is not fruitful to sit in complete ignorance of this pessimism, nor to spend life mourning a lost golden age. Instead, if we acknowledge the intrinsic tendency of things to fail and still strive for a better world, we can exploit certain aspects of this pessimism. In the following chapters, I will show how this framework of thinking is particularly useful for the JSDA Class 1 exam, and perhaps for many other exams of a similar nature.
 
 ## Next Step
