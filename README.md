@@ -21,7 +21,8 @@ Advice 2: The 5-choice questions are much more important than the True or False 
    2. [The informed guesser](#informed-guesser)
 3. [Entropy](#entropy)
    1. [What is entropy?](#What-is-entropy)
-   2. [Coffee, wealth, and pessimism](#CWE)
+      1. [The coin flip](#coinflip)
+      2. [Coffee, wealth, and pessimism](#CWE)
 
 <a id="overview"></a>
 
@@ -180,7 +181,7 @@ In other words, we propose that in the long term, things will naturally and inev
 
 
 <a id="CWE"></a>
-### 3.2 Coffee, wealth, and pessimism.
+#### 3.1.2 Coffee, wealth, and pessimism.
 
 Entropy is a statistical property of large, complex systems, yet it governs many familiar processes. Why, for instance, does hot coffee cool in an air-conditioned room? The answer follows directly from the previous subsection. Imagine two rooms separated by a thin wall with a small aperture. Each room contains rapidly moving numbered balls, representing discrete units of thermal energy, and these balls can occasionally pass through the aperture. In the example below, Room A contains 3 balls and Room B contains 7. If the balls move randomly for a long time, how much more likely is it to observe an even split, with 5 balls in each room, than an extreme split, with all 10 balls in one room?
 
