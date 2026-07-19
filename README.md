@@ -4,14 +4,14 @@
 
 Assuming the reader of this document has a solid technical background, I would recommend spending no more than 20 hours in total preparing for this exam and focusing the rest of your time on real work. By carefully studying the structure of the test and fully understanding the principles of entropy, a strategic test taker should be able to maximally exploit the information content of the questions in this exam.
 
-<span style="color:red;">
-"It remains that, from the same principles, I now demonstrate the frame of the System of the JSDA Class 1 exam." -- not by Isaac Newton
-</span>
+**"It remains that, from the same principles, I now demonstrate the frame of the System of the JSDA Class 1 exam." -- not by Isaac Newton**
 
 ## Advice
-Advice 1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.
+**Advice 1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.**
 
-Advice 2: The 5-choice questions are much more important than the True or False questions.
+**Advice 2: The 5-choice questions are much more important than the True or False questions.**
+
+**Advice 3: Use entropy only as a last-resort guide after knowledge and common sense.**
 
 ## Draft Outline
 
@@ -23,8 +23,7 @@ Advice 2: The 5-choice questions are much more important than the True or False 
    1. [What is entropy?](#What-is-entropy)
       1. [The coin flip](#coinflip)
       2. [Coffee, wealth, and pessimism](#CWE)
-   2. [Entropy in the exam](#exam-entropy)
-   3. [Example: Corporate Law Question 57](#example-q57)
+   2. [The pessimistic guesser](#exam-entropy)
 
 <a id="overview"></a>
 
@@ -73,7 +72,7 @@ Question type notation:
 
 Now, after looking at the table, one conclusion becomes immediately clear: Derivatives Trading, Equity Operations, Bond Operations, and Association Articles and Rules are the four most important sections.
 
-<span style="color:red;"><strong>Advice 1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.</strong></span>
+**Advice 1: Spend more than 80% of your study time on Derivatives Trading, Equity Operations, and Bond Operations.**
 
 At this point, you may naturally have two questions:
 
@@ -111,8 +110,6 @@ So, using the question counts from the overview table:
 Now add these three distributions together. The exam has 440 total points, so the 70% passing line is 308 points. The exact probability that a pure random guesser passes is 8.23e-11, or about 0.00000000823%.
 
 As one can clearly observe from the calculation above, passing the exam as a random guesser is astronomically unlikely. Overall, we can see that C15 is the most important question type, simply because choosing one answer out of five is difficult, which makes the expected relative score very low. At the same time, it is an all-or-nothing question type with a lot of weight. This explains the second question left open in Section 1. In part, Association Articles and Rules questions are not as important because they are TF and C25 questions, which are relatively favorable to a random guesser. We will soon see that this is not the only reason. Actual test takers are not random guessers, especially in sections such as Association Articles and Rules, where prior probability and common sense play an important role.
-<!-- ![Exact random-guesser score distributions](images/random_guesser_question_type_distributions.png) -->
-
 <a id="informed-guesser"></a>
 
 ### 2.2 The informed guesser
@@ -123,23 +120,13 @@ For starters, let us look at TF questions and assume that the examinee's probabi
 
 C25 is harder to model. In practice, its five choices often behave like five TF statements bundled into one question. Let us assume that the examinee can judge each statement correctly with probability $p_{25}$: true statements are recognized as true, and false statements are recognized as false, each with probability $p_{25}$.
 
-Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true. The plot of the expected score with respect to $p$ is shown below, where $p$ starts from the random-guess baseline.
+Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true.
 
-<a id="fig-informed-guesser-sensitivity"></a>
-![TF, C15, and C25 informed-guesser sensitivity](images/tf_c15_c25_informed_guesser_sensitivity.png)
-
-*Figure 1. Expected score sensitivity for TF, C15, and C25 questions as examinee information increases.*
-
-Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. The plot below shows the expected point gain only, which is the cleanest way to compare which question type is most sensitive to a small improvement in judgment. For TF and C15, it is easy to see that the sensitivity is flat, whereas C25 exhibits non-linear behavior. 
-
-<a id="fig-question-type-point-sensitivity"></a>
-![Question type point sensitivity](images/question_type_point_sensitivity.png)
-
-*Figure 2. Expected point gain from a one-percentage-point improvement in judgment across question types.*
+Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. This expected point gain is the cleanest way to compare which question type is most sensitive to a small improvement in judgment. For TF and C15, it is easy to see that the sensitivity is flat, whereas C25 exhibits non-linear behavior.
 
 By now, I hope I have convinced the reader that both C15 and C25 carry more weight than TF. In terms of sensitivity, it is also more efficient to study them, especially C25, since it offers nonlinear improvement. To summarize:
 
-<span style="color:red;"><strong>Advice 2:  5-choice questions are much more important than the True or False questions. </strong></span>
+**Advice 2: The 5-choice questions are much more important than the True or False questions.**
 
 <a id="entropy"></a>
 
@@ -160,7 +147,7 @@ In one sentence, I wish to define entropy as "a measure of disorder/randomness" 
 #### 3.1.1  The coin flip
 Let us say we play a game of coin-flipping: if it is heads (denoted by +), you receive one dollar. If it is tails (denoted by -), you pay one dollar. Are you scared to gamble under such conditions? Of course not. This is a fair game, and you know that on average, your expected payoff is $E = 0$. You are probably thinking something like this: "If I play a few games, I might get unlucky and lose some money. But as long as I play a huge number of games, I should be roughly winning half and roughly losing half." But why is that?
 
-Let us examine the idea of "fairness": it means that on each flip, the outcome is independent and 50-50. If we play six games, the outcome could be represented by a string such as "+-++-+", where one wins four games and loses two. Now fairness demands that any such possible string is equally likely to happen. Otherwise, the game is rigged toward certain outcomes. Let us call such strings <span style="color:red">microstates</span>, micro in the sense that the string specifies all the flips exactly and therefore corresponds to only one outcome. By contrast, when a person is in the state of "winning two dollars overall," we call this the <span style="color:red">macrostate</span>. Obviously, it is macro in the sense that there are multiple ways to win two dollars: "+-++-+", "++++--", "++--++", etc.
+Let us examine the idea of "fairness": it means that on each flip, the outcome is independent and 50-50. If we play six games, the outcome could be represented by a string such as "+-++-+", where one wins four games and loses two. Now fairness demands that any such possible string is equally likely to happen. Otherwise, the game is rigged toward certain outcomes. Let us call such strings **microstates**, micro in the sense that the string specifies all the flips exactly and therefore corresponds to only one outcome. By contrast, when a person is in the state of "winning two dollars overall," we call this the **macrostate**. Obviously, it is macro in the sense that there are multiple ways to win two dollars: "+-++-+", "++++--", "++--++", etc.
 
 It is then obvious that macrostates correspond to one or more microstates, where the latter requires more information to specify. Recall the idea of fairness: all microstates must be equally likely in our coin flips. The question is: how much more likely is it for you to be net zero at the end of the sixth game than to be down 6 dollars?
 
@@ -169,12 +156,7 @@ To lose six dollars in a game of six coin flips, you must lose all six rounds. S
 $$\frac{P(0)}{P(-6)} = \frac{\sum_{i = 0}^{\Omega(0)} p(i)}{\sum_{j = 0}^{\Omega(-6)} p(j)} = \frac{\Omega(0)}{\Omega(-6)} = \frac{20}{1} = 20$$
 
 
-We see that even though the game is fair, some macrostates are far more likely to occur because they are more "vague": they correspond to more microstates. And as we play more games, this phenomenon becomes more exaggerated. Let us define the notional amount of the game, $N$, as the maximum money at stake. Now compare how likely the game is to give an outcome near net zero after 20, 400, and 2000 games. The results are shown below. We see that the distribution becomes far more concentrated around net zero. This is theoretically intuitive: as more games are played, the number of combinations of microstates near net zero grows much faster than the rest. Readers can investigate the mathematical details by themselves, derive the binomial distribution we used intensively in the last section, and conclude that the width of the distribution in the following plot shrinks polynomially, with exponent 1/2.
-
-<a id="fig-coin-flip-payoff"></a>
-![Normalized payoff distribution for 20, 400, and 2000 games](images/coin_flip_normalized_payoff.png)
-
-*Figure 3. Normalized payoff distribution for 20, 400, and 2000 fair coin-flip games.*
+We see that even though the game is fair, some macrostates are far more likely to occur because they are more "vague": they correspond to more microstates. And as we play more games, this phenomenon becomes more exaggerated. Let us define the notional amount of the game, $N$, as the maximum money at stake. Now compare how likely the game is to give an outcome near net zero after 20, 400, and 2000 games. We see that the distribution becomes far more concentrated around net zero. This is theoretically intuitive: as more games are played, the number of combinations of microstates near net zero grows much faster than the rest. Readers can investigate the mathematical details by themselves, derive the binomial distribution we used intensively in the last section, and conclude that the width of the distribution shrinks polynomially, with exponent 1/2.
 
 
 To conclude, if you play more and more games, you will almost inevitably land somewhere near the net-zero center. And this "number of microstates" is what we call entropy. From the Boltzmann perspective, this is all just combinatorics. From Shannon's information theory perspective, a higher entropy means more randomness and less order. In the example given above, the macrostate of net zero is more random and chaotic because it can be any of many microstates. It has less order because -6$ means "------", which is very orderly, while net zero often means something like "+--+-++", which is not very neat, is it?
@@ -185,16 +167,11 @@ In other words, we propose that in the long term, things will naturally and inev
 <a id="CWE"></a>
 #### 3.1.2 Coffee, wealth, and pessimism.
 
-Entropy is a statistical property of large, complex systems, yet it governs many familiar processes. Why, for instance, does hot coffee cool in an air-conditioned room? The answer follows directly from the previous subsection. Imagine two rooms separated by a thin wall with a small aperture. Each room contains rapidly moving numbered balls, representing discrete units of thermal energy, and these balls can occasionally pass through the aperture. In the example below, Room A contains 3 balls and Room B contains 7. If the balls move randomly for a long time, how much more likely is it to observe an even split, with 5 balls in each room, than an extreme split, with all 10 balls in one room?
-
-<a id="fig-thermal-exchange"></a>
-![Thermal exchange between two connected rooms](images/thermal_exchange_two_rooms.svg)
-
-*Figure 4. Random exchange of thermal-energy units between two connected rooms.*
+Entropy is a statistical property of large, complex systems, yet it governs many familiar processes. Why, for instance, does hot coffee cool in an air-conditioned room? The answer follows directly from the previous subsection. Imagine two rooms separated by a thin wall with a small aperture. Each room contains rapidly moving numbered balls, representing discrete units of thermal energy, and these balls can occasionally pass through the aperture. Suppose Room A contains 3 balls and Room B contains 7. If the balls move randomly for a long time, how much more likely is it to observe an even split, with 5 balls in each room, than an extreme split, with all 10 balls in one room?
 
 This is the same combinatorial problem as the coin-flip example. A microstate specifies the location of every labelled ball, whereas a macrostate specifies only how many balls are on each side. The macrostate in which all 10 balls are on one side has only two microstates: all balls are on the left, or all balls are on the right. By contrast, there are 252 ways to place 5 balls on each side. For example, balls #1, #2, #3, #4, and #5 could be on the left, or balls #1, #4, #6, #8, and #9 could be on the left. Thus, the evenly divided macrostate is 126 times more likely than either extreme macrostate.
 
-Since each ball is equally likely to be on the right or left in the fullness of time, it is essentially a coin flip. This is why [Figure 3](#fig-coin-flip-payoff) can also be read as a thermal-exchange diagram: the x-axis may be interpreted as the fraction of balls on the left side. As the number of balls increases from 20 to 2000, the distribution becomes sharply concentrated near an even split. A cup of hot coffee contains not 20 or 2000 atoms, but on the order of 2 × 10²⁵ atoms, while the surrounding air contains vastly more. The cooling of coffee is therefore not imposed by a separate rule of physics; it is a statistical consequence of overwhelmingly many more microstates in which thermal energy is dispersed into the surroundings than concentrated in the coffee. Energy can, in principle, flow in either direction, but for systems of this size the overwhelmingly probable outcome is that hot coffee loses heat to the room.
+Since each ball is equally likely to be on the right or left in the fullness of time, it is essentially a coin flip. As the number of balls increases from 20 to 2000, the distribution becomes sharply concentrated near an even split. A cup of hot coffee contains not 20 or 2000 atoms, but on the order of 2 × 10²⁵ atoms, while the surrounding air contains vastly more. The cooling of coffee is therefore not imposed by a separate rule of physics; it is a statistical consequence of overwhelmingly many more microstates in which thermal energy is dispersed into the surroundings than concentrated in the coffee. Energy can, in principle, flow in either direction, but for systems of this size the overwhelmingly probable outcome is that hot coffee loses heat to the room.
 
 A naive reader at this point might think the examples above show that nature favours equality, since heat tends to spread evenly. But nothing could be further from the truth. Entropy does not favour equality itself; it favours the macrostate with the greatest number of possible microstates.
 
@@ -202,12 +179,7 @@ Consider a simple wealth experiment. Suppose 1,000 people each begin with $100 a
 
 The reason is simple: perfect equality is an extremely specific state. Since money is not labelled, one dollar is the same as any other dollar, so there is only one allocation in which every person has exactly $100. Unequal distributions, however, can be arranged in vastly more ways. Person #1 could be rich, or person #84, or any combination of people, with many possible amounts assigned to each. At the opposite extreme, one person holding all the money is also highly specific and therefore unlikely. The most probable outcome lies somewhere between perfect equality and total concentration: unequal enough to allow many possible arrangements, but not so extreme that the arrangement becomes special again. This intermediate region is the maximum-entropy state. Thus, even when everyone begins equally and plays only fair games, most participants will eventually fall below the average, while a minority holds disproportionately more.
 
-The simulation below illustrates the same mechanism with 1,000 participants. Each person begins with $100 and repeatedly plays a fair $1 game against a randomly chosen opponent. A person who reaches $0 cannot lose further money. Even under these symmetric rules, the initially equal distribution quickly spreads out and begins to resemble the Boltzmann-like exponential curve shown in red.
-
-<a id="fig-wealth-rps-simulation"></a>
-![Simulated wealth distribution under repeated fair games](images/wealth_rps_simulation.gif)
-
-*Figure 5. Simulated wealth distribution for 1,000 people repeatedly playing fair $1 games over 7,000,000 rounds.*
+The same mechanism can be illustrated with 1,000 participants. Each person begins with $100 and repeatedly plays a fair $1 game against a randomly chosen opponent. A person who reaches $0 cannot lose further money. Even under these symmetric rules, the initially equal distribution quickly spreads out and begins to resemble a Boltzmann-like exponential curve.
 
 A side note for curious readers: in the examples above, interchangeability matters enormously. Since entropy is a combinatorial idea in the picture we have presented, the number of possible arrangements depends on whether the objects being counted are distinguishable. Dividing 10 labelled balls between two rooms is not the same problem as dividing 10 identical balls. The counting changes, and therefore the entropy changes. This is one reason elementary particles are so conceptually strange. A soccer ball, a mug, a molecule, or even an atom can in principle be labelled and tracked as an individual object. But an elementary particle cannot. Two electrons are not merely difficult to distinguish because our instruments are imperfect; they are identical in principle and cannot be labelled. This conclusion is supported by their observed statistical behaviour, among many other lines of evidence. If electrons could be labelled, even in principle, they would obey different statistical laws, and matter would have different thermodynamic properties. In fact, if two electrons are placed separately into a box, there is no meaningful sense in which one is the “first” electron and the other is the “second.” There is no “this” electron or “that” electron. One cannot correctly calculate the properties of such a system using a notion of individually labelled electrons, because that notion already assumes the particles can somehow be marked and tracked through their histories. If such an assumption is made, the calculation will be wrong, because it no longer reflects physical reality.
 
@@ -220,7 +192,7 @@ On shorter time scales and within local systems, the drift toward higher entropy
 But beyond this pessimism, there are other lessons to draw. We should be grateful that human beings have come so far in finding ways to temporarily and locally reverse entropy’s increase on Earth. Futile as this may be in the long term, we all benefit from the efforts of those who came before us: we do have hot coffee, air conditioners, bridges, and buildings. The point is therefore not to ask whether things will fail, because they certainly will, but to ask what we can do about it. It is not fruitful to live in complete ignorance of this pessimism, nor to spend one’s life mourning a lost golden age dismantled by the rule of entropy. Instead, if we acknowledge the intrinsic tendency of things to fail and still strive for progress, we can exploit certain aspects of this pessimism to give birth to a better world, one that may endure far beyond our own lifetimes. In the following chapters, I will show how this framework of thinking is particularly useful for the JSDA Class 1 exam, and perhaps for many other exams of a similar nature.
 
 <a id="exam-entropy"></a>
-### 3.2 Entropy in the exam
+### 3.2 The pessimistic guesser
 
 Let us now return to the exam. The same intuition about entropy gives us a practical way to think about true-or-false questions. A true statement is usually a narrow and highly specific state: all of its important components must be correct at the same time. By contrast, a false statement can be false in many different ways. A number may be changed, a condition may be reversed, a timing rule may be shifted, or one legal category may be substituted for another.
 
@@ -239,6 +211,8 @@ The first step is to count the components in the statement. Here we have 大会�
 Let us put ourselves in the shoes of the person designing the exam. The objective is presumably not to create a systematic bias toward either true or false answers. But this balance is harder to achieve than it first appears. If an examiner randomly changes individual components of a statement, the resulting pool will naturally contain more false statements than true ones. Even if only one component is changed at a time, a four-component question can easily produce a pool that is 80% false and only 20% true. In practice, many exams appear to balance this tendency not through careful sampling, but by including more low-component questions whose truth value is easier to control. If a question has only one meaningful component, even a naive construction method can produce something close to a 50-50 split.
 
 The exact strength of this effect depends on the exam, and the only way to judge it well is to work through many practice problems. When doing so, I suggest the following order of reasoning: first knowledge, then common sense, and only then entropy. If you know the rule, rely on the rule. If you do not know the rule, ask whether the statement makes sense. For example, in Example Question 2 below, the component structure is simple, so entropy alone does not strongly favour either answer. But common sense should still make us suspicious. Non-participating preferred shares are a special type of security; it would be surprising if their listing standards were exactly the same as those for common shares. In such a case, the prior probability that the statement is true should be fairly low. Lastly, if neither knowledge nor common sense gives much help, component counting can sometimes serve as a useful fallback.
+
+**Advice 3: Use entropy only as a last-resort guide after knowledge and common sense.**
 
 > **Example Question 2**
 >
