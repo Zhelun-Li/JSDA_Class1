@@ -23,6 +23,8 @@ Advice 2: The 5-choice questions are much more important than the True or False 
    1. [What is entropy?](#What-is-entropy)
       1. [The coin flip](#coinflip)
       2. [Coffee, wealth, and pessimism](#CWE)
+   2. [Entropy in the exam](#exam-entropy)
+   3. [Example: Corporate Law Question 57](#example-q57)
 
 <a id="overview"></a>
 
@@ -217,4 +219,35 @@ On shorter time scales and within local systems, the drift toward higher entropy
 
 But beyond this pessimism, there are other lessons to draw. We should be grateful that human beings have come so far in finding ways to temporarily and locally reverse entropy’s increase on Earth. Futile as this may be in the long term, we all benefit from the efforts of those who came before us: we do have hot coffee, air conditioners, bridges, and buildings. The point is therefore not to ask whether things will fail, because they certainly will, but to ask what we can do about it. It is not fruitful to live in complete ignorance of this pessimism, nor to spend one’s life mourning a lost golden age dismantled by the rule of entropy. Instead, if we acknowledge the intrinsic tendency of things to fail and still strive for progress, we can exploit certain aspects of this pessimism to give birth to a better world, one that may endure far beyond our own lifetimes. In the following chapters, I will show how this framework of thinking is particularly useful for the JSDA Class 1 exam, and perhaps for many other exams of a similar nature.
 
-## Next Step
+<a id="exam-entropy"></a>
+### 3.2 Entropy in the exam
+
+Let us now return to the exam. The same intuition about entropy gives us a practical way to think about true-or-false questions. A true statement is usually a narrow and highly specific state: all of its important components must be correct at the same time. By contrast, a false statement can be false in many different ways. A number may be changed, a condition may be reversed, a timing rule may be shifted, or one legal category may be substituted for another.
+
+> **Example Question 1**
+>
+> **Japanese:**
+>
+> 問57. 会社法において、大会社とは、最終事業年度の貸借対照表において、資本金の額が10億円以上又は負債総額が100億円以上の株式会社をいう。
+>
+> **English:**
+>
+> Question 57. Under the Companies Act, a large company means a stock company whose stated capital is 1 billion yen or more, or whose total liabilities are 10 billion yen or more, as shown on the balance sheet for the most recent business year.
+
+The first step is to count the components in the statement. Here we have 大会社 (large company), 最終事業年度 (most recent business year), 貸借対照表 (balance sheet), 資本金の額が10億円以上 (stated capital of 1 billion yen or more), and 負債総額が100億円以上 (total liabilities of 10 billion yen or more). That gives us five components in total. One could argue that there are only four real degrees of freedom, since 大会社 (large company) merely defines the object being described. Even under this conservative interpretation, however, a four-component statement is not easy to make true. There are `2^4 - 1 = 15` ways for at least one component to be wrong, and only one way for all components to be correct. In the question above, the answer is false: both numerical thresholds are wrong. The correct figures are 500 million yen and 20 billion yen.
+
+Let us put ourselves in the shoes of the person designing the exam. The objective is presumably not to create a systematic bias toward either true or false answers. But this balance is harder to achieve than it first appears. If an examiner randomly changes individual components of a statement, the resulting pool will naturally contain more false statements than true ones. Even if only one component is changed at a time, a four-component question can easily produce a pool that is 80% false and only 20% true. In practice, many exams appear to balance this tendency not through careful sampling, but by including more low-component questions whose truth value is easier to control. If a question has only one meaningful component, even a naive construction method can produce something close to a 50-50 split.
+
+The exact strength of this effect depends on the exam, and the only way to judge it well is to work through many practice problems. When doing so, I suggest the following order of reasoning: first knowledge, then common sense, and only then entropy. If you know the rule, rely on the rule. If you do not know the rule, ask whether the statement makes sense. For example, in Example Question 2 below, the component structure is simple, so entropy alone does not strongly favour either answer. But common sense should still make us suspicious. Non-participating preferred shares are a special type of security; it would be surprising if their listing standards were exactly the same as those for common shares. In such a case, the prior probability that the statement is true should be fairly low. Lastly, if neither knowledge nor common sense gives much help, component counting can sometimes serve as a useful fallback.
+
+> **Example Question 2**
+>
+> **Japanese:**
+>
+> 問23. 非参加型優先株の上場審査基準は、普通株と全く同じ基準が適用される。
+>
+> **English:**
+>
+> Question 23. For the listing examination standards for non-participating preferred shares, exactly the same standards as those for common shares are applied.
+
+Finally, I must emphasize that I have not yet performed a detailed sampling study on the relationship between component count and correctness. The real relationship is almost certainly intertwined rather than purely numerical: both the number of components and the common-sense plausibility of each component matter. **Therefore, the reader must not follow the above principle blindly.** Instead, treat it as a hypothesis to test in mock exams, where one can learn how to balance knowledge, common sense, and component counting. I recommend attempting at least two full mock exams before taking the actual exam.
