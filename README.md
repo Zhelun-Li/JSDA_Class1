@@ -107,6 +107,8 @@ So, using the question counts from the overview table:
 | C25 | 150 | 60.00 +/- 11.62 | 40.00% +/- 7.75% |
 | **Total** | **440** | **160.00 +/- 21.10** | **36.36% +/- 4.79%** |
 
+Figure 1 summarizes the three exact score distributions for a pure random guesser.
+
 <a id="fig-random-guesser-distributions"></a>
 ![Exact random-guesser score distributions](images/random_guesser_question_type_distributions.png)
 
@@ -202,7 +204,7 @@ Consider a simple wealth experiment. Suppose 1,000 people each begin with $100 a
 
 The reason is simple: perfect equality is an extremely specific state. Since money is not labelled, one dollar is the same as any other dollar, so there is only one allocation in which every person has exactly $100. Unequal distributions, however, can be arranged in vastly more ways. Person #1 could be rich, or person #84, or any combination of people, with many possible amounts assigned to each. At the opposite extreme, one person holding all the money is also highly specific and therefore unlikely. The most probable outcome lies somewhere between perfect equality and total concentration: unequal enough to allow many possible arrangements, but not so extreme that the arrangement becomes special again. This intermediate region is the maximum-entropy state. Thus, even when everyone begins equally and plays only fair games, most participants will eventually fall below the average, while a minority holds disproportionately more.
 
-The same mechanism can be illustrated with 1,000 participants. Each person begins with $100 and repeatedly plays a fair $1 game against a randomly chosen opponent. A person who reaches $0 cannot lose further money. Even under these symmetric rules, the initially equal distribution quickly spreads out and begins to resemble the Boltzmann-like exponential curve shown in red.
+The same mechanism can be illustrated with 1,000 participants. Each person begins with $100 and repeatedly plays a fair $1 game against a randomly chosen opponent. A person who reaches $0 cannot lose further money. Even under these symmetric rules, the initially equal distribution quickly spreads out and begins to resemble the Boltzmann-like exponential curve shown in red. Figure 6 illustrates this simulated wealth distribution directly.
 
 <a id="fig-wealth-rps-simulation"></a>
 ![Simulated wealth distribution under repeated fair games](images/wealth_rps_simulation.gif)
