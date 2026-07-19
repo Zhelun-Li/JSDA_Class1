@@ -125,14 +125,14 @@ For starters, let us look at TF questions and assume that the examinee's probabi
 
 C25 is harder to model. In practice, its five choices often behave like five TF statements bundled into one question. Let us assume that the examinee can judge each statement correctly with probability $p_{25}$: true statements are recognized as true, and false statements are recognized as false, each with probability $p_{25}$.
 
-Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true. The plot of the expected score with respect to $p$ is shown below, where $p$ starts from the random-guess baseline.
+Each C25 question has 5 statements, of which 2 are true and 3 are false. Therefore, the expected number of statements the examinee believes to be true is roughly `2 * p_25 + 3 * (1 - p_25)`. This number may be smaller or larger than the 2 choices the examinee must submit. If fewer than 2 statements look true, the examinee selects those statements and randomly fills the remaining slot. If more than 2 statements look true, the examinee randomly selects 2 from the statements they believe are true. Figure 2 uses the expected score curve with respect to $p$, where $p$ starts from the random-guess baseline.
 
 <a id="fig-informed-guesser-sensitivity"></a>
 ![TF, C15, and C25 informed-guesser sensitivity](images/tf_c15_c25_informed_guesser_sensitivity.png)
 
 *Figure 2. Expected score sensitivity for TF, C15, and C25 questions as examinee information increases.*
 
-Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. The plot below shows the expected point gain only, which is the cleanest way to compare which question type is most sensitive to a small improvement in judgment. For TF and C15, it is easy to see that the sensitivity is flat, whereas C25 exhibits non-linear behavior.
+Now we can ask a more useful question: if $p$ improves by 1 percentage point, how many extra points should we expect? For each value of $p$, we calculate this as `expected_score(p + 0.01) - expected_score(p)`. Figure 3 shows the expected point gain only, which is the cleanest way to compare which question type is most sensitive to a small improvement in judgment. For TF and C15, it is easy to see that the sensitivity is flat, whereas C25 exhibits non-linear behavior.
 
 <a id="fig-question-type-point-sensitivity"></a>
 ![Question type point sensitivity](images/question_type_point_sensitivity.png)
@@ -156,7 +156,7 @@ Subsequently, we will see how to use entropy in preparing for this test.
 
 Entropy can be defined in several ways: Boltzmann (statistical mechanics), Shannon (information theory), and Jaynes (Bayesian statistics). A knowledgeable reader will of course know that the three approaches above are mutually compatible and often borrow terms from one another. In this subsection, we will attempt to give a short description using the Boltzmann-like picture.
 
-In one sentence, I wish to define entropy as "a measure of disorder/randomness" and information as "a measure of order with respect to disorder/randomness". To illustrate this, let us focus on the following example.
+In one sentence, I wish to define entropy as "a measure of disorder/randomness" and information as "a measure of order with respect to disorder/randomness". To illustrate this, let us focus on the coin-flip example in the next subsection, which is summarized in Figure 4.
 
 <a id="coinflip"></a>
 #### 3.1.1  The coin flip
@@ -171,7 +171,7 @@ To lose six dollars in a game of six coin flips, you must lose all six rounds. S
 $$\frac{P(0)}{P(-6)} = \frac{\sum_{i = 0}^{\Omega(0)} p(i)}{\sum_{j = 0}^{\Omega(-6)} p(j)} = \frac{\Omega(0)}{\Omega(-6)} = \frac{20}{1} = 20$$
 
 
-We see that even though the game is fair, some macrostates are far more likely to occur because they are more "vague": they correspond to more microstates. And as we play more games, this phenomenon becomes more exaggerated. Let us define the notional amount of the game, $N$, as the maximum money at stake. Now compare how likely the game is to give an outcome near net zero after 20, 400, and 2000 games. The results are shown below. We see that the distribution becomes far more concentrated around net zero. This is theoretically intuitive: as more games are played, the number of combinations of microstates near net zero grows much faster than the rest. Readers can investigate the mathematical details by themselves, derive the binomial distribution we used intensively in the last section, and conclude that the width of the distribution in the following plot shrinks polynomially, with exponent 1/2.
+We see that even though the game is fair, some macrostates are far more likely to occur because they are more "vague": they correspond to more microstates. And as we play more games, this phenomenon becomes more exaggerated. Let us define the notional amount of the game, $N$, as the maximum money at stake. Now compare how likely the game is to give an outcome near net zero after 20, 400, and 2000 games. Figure 4 shows that the distribution becomes far more concentrated around net zero. This is theoretically intuitive: as more games are played, the number of combinations of microstates near net zero grows much faster than the rest. Readers can investigate the mathematical details by themselves, derive the binomial distribution we used intensively in the last section, and conclude that the width of the distribution in Figure 4 shrinks polynomially, with exponent 1/2.
 
 <a id="fig-coin-flip-payoff"></a>
 ![Normalized payoff distribution for 20, 400, and 2000 games](images/coin_flip_normalized_payoff.png)
@@ -185,7 +185,7 @@ In other words, we propose that in the long term, things will naturally and inev
 <a id="CWE"></a>
 #### 3.1.2 Coffee, wealth, and pessimism.
 
-Entropy is a statistical property of large, complex systems, yet it governs many familiar processes. Why, for instance, does hot coffee cool in an air-conditioned room? The answer follows directly from the previous subsection. Imagine two rooms separated by a thin wall with a small aperture. Each room contains rapidly moving numbered balls, representing discrete units of thermal energy, and these balls can occasionally pass through the aperture. In the example below, Room A contains 3 balls and Room B contains 7. If the balls move randomly for a long time, how much more likely is it to observe an even split, with 5 balls in each room, than an extreme split, with all 10 balls in one room?
+Entropy is a statistical property of large, complex systems, yet it governs many familiar processes. Why, for instance, does hot coffee cool in an air-conditioned room? The answer follows directly from the previous subsection. Imagine two rooms separated by a thin wall with a small aperture. Each room contains rapidly moving numbered balls, representing discrete units of thermal energy, and these balls can occasionally pass through the aperture. In the thermal-exchange example shown in Figure 5, Room A contains 3 balls and Room B contains 7. If the balls move randomly for a long time, how much more likely is it to observe an even split, with 5 balls in each room, than an extreme split, with all 10 balls in one room?
 
 <a id="fig-thermal-exchange"></a>
 ![Thermal exchange between two connected rooms](images/thermal_exchange_two_rooms.svg)
