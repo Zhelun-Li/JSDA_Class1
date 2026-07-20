@@ -24,6 +24,7 @@ Assuming the reader of this document has a solid technical background, I would r
       1. [The coin flip](#coinflip)
       2. [Coffee, wealth, and pessimism](#CWE)
    2. [The pessimistic guesser](#exam-entropy)
+4. [Appendix A. Distinguishability and elementary particles](#appendix-distinguishability)
 
 <a id="overview"></a>
 
@@ -215,7 +216,7 @@ In the simulation shown in Figure 6, a person who reaches $0 cannot lose further
 
 *Figure 7. Individual wealth trajectories for the same 1,000-person fair-game simulation over 10,000,000 rounds. Each faint line tracks one person's wealth through time; the top 5 final wealth holders are highlighted. The dashed line marks the initial $100, and the right-side histogram shows the final wealth distribution.*
 
-A side note for curious readers: in the examples above, interchangeability matters enormously. Since entropy is a combinatorial idea in the picture we have presented, the number of possible arrangements depends on whether the objects being counted are distinguishable. Dividing 10 labelled balls between two rooms is not the same problem as dividing 10 identical balls. The counting changes, and therefore the entropy changes. This is one reason elementary particles are so conceptually strange. A soccer ball, a mug, a molecule, or even an atom can in principle be labelled and tracked as an individual object. But an elementary particle cannot. Two electrons are not merely difficult to distinguish because our instruments are imperfect; they are identical in principle and cannot be labelled. This conclusion is supported by their observed statistical behaviour, among many other lines of evidence. If electrons could be labelled, even in principle, they would obey different statistical laws, and matter would have different thermodynamic properties. In fact, if two electrons are placed separately into a box, there is no meaningful sense in which one is the “first” electron and the other is the “second.” There is no “this” electron or “that” electron. One cannot correctly calculate the properties of such a system using a notion of individually labelled electrons, because that notion already assumes the particles can somehow be marked and tracked through their histories. If such an assumption is made, the calculation will be wrong, because it no longer reflects physical reality.
+For a more technical side note on distinguishability, see [Appendix A](#appendix-distinguishability).
 
 Overall, the idea of increasing entropy teaches pessimism as an objective truth: in the long run, nothing in our universe escapes decay. Nature does not build high-speed railways, tall buildings, or bridges. If human beings build them and leave them alone, they will eventually collapse. This is not because physics specifically requires buildings to collapse, but because arranging atoms into a structure useful enough for human beings to live in is an extraordinarily specific state. There are vastly more ways for those atoms to be scattered, displaced, corroded, cracked, or otherwise arranged. All it takes is enough random processes over enough time.
 
@@ -261,3 +262,12 @@ The exact strength of this effect depends on the exam, and the only way to judge
 > Question 23. For the listing examination standards for non-participating preferred shares, exactly the same standards as those for common shares are applied.
 
 Finally, I must emphasize that I have not yet performed a detailed sampling study on the relationship between component count and correctness. The real relationship is almost certainly intertwined rather than purely numerical: both the number of components and the common-sense plausibility of each component matter. **Therefore, the reader must not follow the above principle blindly.** Instead, treat it as a hypothesis to test in mock exams, where one can learn how to balance knowledge, common sense, and component counting. I recommend attempting at least two full mock exams before taking the actual exam.
+
+<a id="appendix-distinguishability"></a>
+## Appendix A. Distinguishability and elementary particles
+
+This appendix expands on a technical point behind [Section 3.1.2](#CWE), where the coffee and wealth examples used entropy as a combinatorial idea. In such examples, the number of possible arrangements depends on whether the objects being counted are distinguishable.
+
+Dividing 10 labelled balls between two rooms is not the same problem as dividing 10 identical balls. The counting changes, and therefore the entropy changes. This is one reason elementary particles are so conceptually strange. A soccer ball, a mug, a molecule, or even an atom can in principle be labelled and tracked as an individual object. But an elementary particle cannot. Two electrons are not merely difficult to distinguish because our instruments are imperfect; they are identical in principle and cannot be labelled. This conclusion is supported by their observed statistical behaviour, among many other lines of evidence.
+
+If electrons could be labelled, even in principle, they would obey different statistical laws, and matter would have different thermodynamic properties. In fact, if two electrons are placed separately into a box, there is no meaningful sense in which one is the "first" electron and the other is the "second." There is no "this" electron or "that" electron. One cannot correctly calculate the properties of such a system using a notion of individually labelled electrons, because that notion already assumes the particles can somehow be marked and tracked through their histories. If such an assumption is made, the calculation will be wrong, because it no longer reflects physical reality.
