@@ -108,12 +108,12 @@ So, using the question counts from the overview table:
 | C25 | 150 | 60.00 +/- 11.62 | 40.00% +/- 7.75% |
 | **Total** | **440** | **160.00 +/- 21.10** | **36.36% +/- 4.79%** |
 
-Figure 1 summarizes the three exact score distributions for a pure random guesser.
+Figure 1 summarizes the exact score distributions for a pure random guesser, binned into shared 10-point intervals for a cleaner density-style comparison.
 
 <a id="fig-random-guesser-distributions"></a>
 ![Exact random-guesser score distributions](images/random_guesser_question_type_distributions.png)
 
-*Figure 1. Exact random-guesser score distributions for TF, C15, and C25 questions.*
+*Figure 1. Exact random-guesser score distributions for TF, C15, and C25 questions, shown as shared-bin densities.*
 
 Now add these three distributions together. The exam has 440 total points, so the 70% passing line is 308 points. The exact probability that a pure random guesser passes is 8.23e-11, or about 0.00000000823%.
 

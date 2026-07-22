@@ -61,6 +61,14 @@ def binomial_score_pmf(n, p, points):
     return pmf
 
 
+def binned_score_density(pmf, bin_width=10, max_score=TOTAL_SCORE):
+    scores = np.arange(len(pmf))
+    edges = np.arange(0, max_score + bin_width, bin_width)
+    bin_probs, _ = np.histogram(scores, bins=edges, weights=pmf)
+    centers = edges[:-1] + bin_width / 2
+    return centers, bin_probs / bin_width
+
+
 def repeated_question_pmf(single_question_pmf, n):
     total = np.array([1.0])
     for _ in range(n):
@@ -86,28 +94,29 @@ def figure_1():
     }
 
     total_pmf = np.convolve(np.convolve(tf_pmf, c15_pmf), c25_pmf)
-    total_scores = np.arange(len(total_pmf))
+    total_scores, total_density = binned_score_density(total_pmf)
     pass_probability = total_pmf[PASSING_SCORE:].sum()
 
     fig, ax = plt.subplots(figsize=(12, 7))
-    ax.fill_between(
+    ax.bar(
         total_scores,
-        total_pmf,
+        total_density,
+        width=10,
         color=COLORS["red"],
-        alpha=0.34,
+        alpha=0.28,
+        edgecolor=COLORS["red"],
+        linewidth=0.6,
         label="Total",
+        align="center",
     )
-    ax.plot(total_scores, total_pmf, color=COLORS["red"], linewidth=2.4)
 
     for name, q in question_types.items():
-        scores = np.nonzero(q["pmf"])[0]
-        probs = q["pmf"][scores]
-        ax.plot(
+        scores, density = binned_score_density(q["pmf"])
+        ax.step(
             scores,
-            probs,
-            marker="o",
-            linewidth=2.1,
-            markersize=4,
+            density,
+            where="mid",
+            linewidth=2.4,
             color=q["color"],
             label=name,
         )
@@ -130,7 +139,7 @@ def figure_1():
     )
     ax.set_title("Exact Random-Guesser Score Distributions", loc="left", pad=14, fontweight="bold")
     ax.set_xlabel("Score from random guessing (points)")
-    ax.set_ylabel("Probability")
+    ax.set_ylabel("Density")
     ax.set_xlim(0, TOTAL_SCORE)
     ax.legend(frameon=False, loc="upper right")
     finish(fig, ax, output_path)
